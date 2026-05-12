@@ -2,7 +2,7 @@ from groq import generate_response
 
 
 import re
-import streamlit as s
+import streamlit as st
 import time
 
 
@@ -37,7 +37,7 @@ def complete_answer(question: str,max_rounds:int = 2) -> str:
     base_prompt = (
         "Answer Clearly in numbered points. "
         "Do not Cut sentance. Finish Each point fully . \n\n"
-        f"Question {question}"
+        f"Question: {question}"
 
 
 
@@ -80,13 +80,13 @@ def typewriter_effect(text: str,speed:float = 0.02):
 
 
     for word in words:
-        display_text += word + ""
+        display_text += word + " "
 
 
         placeholder.markdown(display_text)
 
 
-        time.sleep()
+        time.sleep(speed)
 
 
 def main():
